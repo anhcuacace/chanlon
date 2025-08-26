@@ -1,0 +1,505 @@
+/* Widget Styles for Smart Farm Dashboard 2.0 */
+
+/* Notification Panel */
+.notification-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 350px;
+    max-height: 400px;
+    background: var(--bg-white);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--primary-green);
+    color: white;
+}
+
+.notification-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color 0.2s ease;
+}
+
+.notification-item:hover {
+    background: var(--bg-light);
+}
+
+.notification-item.info {
+    border-left: 4px solid var(--secondary-blue);
+}
+
+.notification-item.warning {
+    border-left: 4px solid var(--accent-orange);
+}
+
+.notification-item.success {
+    border-left: 4px solid var(--primary-green);
+}
+
+.notification-item.error {
+    border-left: 4px solid #ef4444;
+}
+
+.notification-content p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--text-dark);
+}
+
+.notification-time {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+/* Alert System */
+.alert-system {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 400px;
+    background: var(--bg-white);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    border: 1px solid var(--border-light);
+}
+
+.alert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #ef4444;
+    color: white;
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.alert-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.alert-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.alert-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.alert-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.alert-item.high {
+    border-left: 4px solid #ef4444;
+}
+
+.alert-item.medium {
+    border-left: 4px solid var(--accent-orange);
+}
+
+.alert-item.low {
+    border-left: 4px solid #f59e0b;
+}
+
+.alert-message {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.alert-action {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+/* Weather Widget */
+.weather-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: var(--bg-white);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    border: 1px solid var(--border-light);
+}
+
+.weather-header {
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.weather-header h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.weather-location {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.weather-content {
+    padding: 1rem;
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.weather-icon {
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+
+.weather-temp {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.weather-desc {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.weather-details {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.weather-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}
+
+.weather-item span:first-child {
+    color: var(--text-light);
+}
+
+.weather-item span:last-child {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Market Widget */
+.market-widget {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 350px;
+    background: var(--bg-white);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    border: 1px solid var(--border-light);
+}
+
+.market-header {
+    padding: 1rem;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.market-header h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.market-update {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.market-content {
+    padding: 1rem;
+}
+
+.market-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.market-item:last-child {
+    border-bottom: none;
+}
+
+.market-label {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    flex: 1;
+}
+
+.market-value {
+    font-size: 0.875rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin: 0 1rem;
+}
+
+.market-change {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.market-change.positive {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.market-change.negative {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+/* Predictive Widget */
+.predictive-widget {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: var(--bg-white);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    border: 1px solid var(--border-light);
+}
+
+.predictive-header {
+    padding: 1rem;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border-radius: 0.75rem 0.75rem 0 0;
+    text-align: center;
+}
+
+.predictive-header h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.predictive-accuracy {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.predictive-content {
+    padding: 1rem;
+}
+
+.prediction-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.prediction-item:last-child {
+    border-bottom: none;
+}
+
+.prediction-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    width: 48px;
+    text-align: center;
+}
+
+.prediction-info h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.prediction-info p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* Responsive Design for Widgets */
+@media (max-width: 768px) {
+    .notification-panel,
+    .alert-system,
+    .weather-widget,
+    .market-widget {
+        position: static;
+        width: 100%;
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+    }
+    
+    .predictive-widget {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        transform: none;
+        width: auto;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .notification-header,
+    .alert-header,
+    .weather-header,
+    .market-header,
+    .predictive-header {
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
+}
+
+/* Animation for Widgets */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-panel,
+.alert-system,
+.weather-widget,
+.market-widget {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Hover Effects */
+.notification-item:hover,
+.alert-item:hover {
+    background: var(--bg-light);
+}
+
+.market-item:hover {
+    background: var(--bg-light);
+    border-radius: 0.25rem;
+}
+
+.prediction-item:hover {
+    background: var(--bg-light);
+    border-radius: 0.25rem;
+}
+
+/* Loading States */
+.widget-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: var(--text-light);
+}
+
+.widget-loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-light);
+    border-top: 2px solid var(--primary-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .notification-panel,
+    .alert-system,
+    .weather-widget,
+    .market-widget,
+    .predictive-widget {
+        background: #1f2937;
+        border-color: #374151;
+    }
+    
+    .notification-item,
+    .alert-item,
+    .market-item,
+    .prediction-item {
+        border-color: #374151;
+    }
+    
+    .notification-content p,
+    .alert-message,
+    .weather-temp,
+    .market-value,
+    .prediction-info h4 {
+        color: #f9fafb;
+    }
+    
+    .notification-time,
+    .alert-action,
+    .weather-desc,
+    .weather-item span:first-child,
+    .market-label,
+    .prediction-info p {
+        color: #9ca3af;
+    }
+}

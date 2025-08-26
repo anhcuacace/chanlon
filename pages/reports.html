@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo - Trang Trại Thông Minh</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/widgets.css">
+    <link rel="stylesheet" href="../css/reports.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📋 Hệ Thống Báo Cáo</h1>
+            <p>Tạo và xuất báo cáo chi tiết về hoạt động trang trại</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="page-nav">
+            <a href="../index.html" class="nav-link">🏠 Trang Chủ</a>
+            <a href="analytics.html" class="nav-link">📊 Phân Tích</a>
+            <a href="reports.html" class="nav-link active">📋 Báo Cáo</a>
+            <a href="settings.html" class="nav-link">⚙️ Cài Đặt</a>
+            <a href="help.html" class="nav-link">❓ Trợ Giúp</a>
+        </nav>
+
+        <main>
+            <!-- Report Generator -->
+            <section class="report-generator">
+                <div class="generator-header">
+                    <h2>Tạo Báo Cáo Mới</h2>
+                    <div class="export-buttons">
+                        <button class="export-btn pdf-btn" onclick="exportToPDF()">
+                            📄 Xuất PDF
+                        </button>
+                        <button class="export-btn excel-btn" onclick="exportToExcel()">
+                            📊 Xuất Excel
+                        </button>
+                        <button class="export-btn email-btn" onclick="sendEmail()">
+                            📧 Gửi Email
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Report Configuration -->
+                <div class="report-config">
+                    <div class="config-section">
+                        <h3>Loại Báo Cáo</h3>
+                        <div class="report-types">
+                            <label class="report-type">
+                                <input type="radio" name="reportType" value="daily" checked>
+                                <span class="type-content">
+                                    <div class="type-icon">📅</div>
+                                    <div class="type-info">
+                                        <h4>Báo Cáo Hàng Ngày</h4>
+                                        <p>Tổng hợp dữ liệu trong ngày</p>
+                                    </div>
+                                </span>
+                            </label>
+                            <label class="report-type">
+                                <input type="radio" name="reportType" value="weekly">
+                                <span class="type-content">
+                                    <div class="type-icon">📊</div>
+                                    <div class="type-info">
+                                        <h4>Báo Cáo Tuần</h4>
+                                        <p>Phân tích xu hướng tuần</p>
+                                    </div>
+                                </span>
+                            </label>
+                            <label class="report-type">
+                                <input type="radio" name="reportType" value="monthly">
+                                <span class="type-content">
+                                    <div class="type-icon">📈</div>
+                                    <div class="type-info">
+                                        <h4>Báo Cáo Tháng</h4>
+                                        <p>Báo cáo tổng hợp tháng</p>
+                                    </div>
+                                </span>
+                            </label>
+                            <label class="report-type">
+                                <input type="radio" name="reportType" value="custom">
+                                <span class="type-content">
+                                    <div class="type-icon">⚙️</div>
+                                    <div class="type-info">
+                                        <h4>Báo Cáo Tùy Chỉnh</h4>
+                                        <p>Tùy chỉnh theo yêu cầu</p>
+                                    </div>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <h3>Nội Dung Báo Cáo</h3>
+                        <div class="content-options">
+                            <label class="content-option">
+                                <input type="checkbox" name="content" value="overview" checked>
+                                <span>Tổng quan trang trại</span>
+                            </label>
+                            <label class="content-option">
+                                <input type="checkbox" name="content" value="environment" checked>
+                                <span>Dữ liệu môi trường</span>
+                            </label>
+                            <label class="content-option">
+                                <input type="checkbox" name="content" value="performance" checked>
+                                <span>Hiệu suất sản xuất</span>
+                            </label>
+                            <label class="content-option">
+                                <input type="checkbox" name="content" value="financial" checked>
+                                <span>Báo cáo tài chính</span>
+                            </label>
+                            <label class="content-option">
+                                <input type="checkbox" name="content" value="health" checked>
+                                <span>Tình trạng sức khỏe đàn</span>
+                            </label>
+                            <label class="content-option">
+                                <input type="checkbox" name="content" value="predictions">
+                                <span>Dự báo và phân tích</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <h3>Khoảng Thời Gian</h3>
+                        <div class="date-config">
+                            <div class="date-input">
+                                <label>Từ ngày:</label>
+                                <input type="date" id="startDate" value="2025-01-01">
+                            </div>
+                            <div class="date-input">
+                                <label>Đến ngày:</label>
+                                <input type="date" id="endDate" value="2025-01-31">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Report Preview -->
+                <div class="report-preview">
+                    <h3>Xem Trước Báo Cáo</h3>
+                    <div class="preview-content" id="reportPreview">
+                        <div class="preview-header">
+                            <h2>Báo Cáo Trang Trại Thông Minh</h2>
+                            <p>Khoảng thời gian: 01/01/2025 - 31/01/2025</p>
+                        </div>
+                        
+                        <div class="preview-section">
+                            <h3>📊 Tổng Quan</h3>
+                            <div class="preview-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Tổng đàn:</span>
+                                    <span class="stat-value">4,985 con</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Trọng lượng TB:</span>
+                                    <span class="stat-value">85.6 kg</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">FCR:</span>
+                                    <span class="stat-value">2.41</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Lợi nhuận:</span>
+                                    <span class="stat-value">2.8 Tỷ VNĐ</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="preview-section">
+                            <h3>🌡️ Môi Trường</h3>
+                            <div class="preview-chart">
+                                <canvas id="previewChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="preview-section">
+                            <h3>📈 Xu Hướng</h3>
+                            <div class="trend-summary">
+                                <p>✅ Tăng trưởng đàn: +15.2%</p>
+                                <p>✅ Hiệu suất nhiệt: 94.7%</p>
+                                <p>✅ Tiết kiệm thức ăn: 12.3%</p>
+                                <p>⚠️ Cần chú ý: Nhiệt độ chuồng A thỉnh thoảng vượt ngưỡng</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Report History -->
+            <section class="report-history">
+                <h2>Lịch Sử Báo Cáo</h2>
+                <div class="history-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ngày Tạo</th>
+                                <th>Loại Báo Cáo</th>
+                                <th>Khoảng Thời Gian</th>
+                                <th>Trạng Thái</th>
+                                <th>Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>31/01/2025</td>
+                                <td>Báo Cáo Tháng</td>
+                                <td>01/01/2025 - 31/01/2025</td>
+                                <td><span class="status completed">Hoàn thành</span></td>
+                                <td>
+                                    <button class="action-btn download">📥</button>
+                                    <button class="action-btn share">📤</button>
+                                    <button class="action-btn delete">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>24/01/2025</td>
+                                <td>Báo Cáo Tuần</td>
+                                <td>20/01/2025 - 26/01/2025</td>
+                                <td><span class="status completed">Hoàn thành</span></td>
+                                <td>
+                                    <button class="action-btn download">📥</button>
+                                    <button class="action-btn share">📤</button>
+                                    <button class="action-btn delete">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>17/01/2025</td>
+                                <td>Báo Cáo Tuần</td>
+                                <td>13/01/2025 - 19/01/2025</td>
+                                <td><span class="status completed">Hoàn thành</span></td>
+                                <td>
+                                    <button class="action-btn download">📥</button>
+                                    <button class="action-btn share">📤</button>
+                                    <button class="action-btn delete">🗑️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 - Trang Trại Thông Minh Hưng Yên. Phát triển bởi Tún Anh.</p>
+        </footer>
+    </div>
+
+    <script src="../js/reports.js"></script>
+</body>
+</html>

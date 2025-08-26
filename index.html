@@ -4,602 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Dự Án Trang Trại Thông Minh 4.0 - Hưng Yên by tún anh</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- External Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Calm Harmony -->
-    <!-- Application Structure Plan: A dashboard-centric, single-page application. The top section is a live (simulated) control panel, giving an immediate sense of the project's high-tech nature. Below, a tabbed interface breaks down the detailed proposal into thematic, digestible sections: Project Overview, Operations, Technology, Roadmap, and Risks. This structure prioritizes user engagement and non-linear exploration, allowing investors to quickly grasp the core concepts and drill down into specifics. The flow is designed to be intuitive: see the result first (dashboard), then explore how it's achieved (tabs). -->
-    <!-- Visualization & Content Choices: Report data is transformed into interactive elements. Key metrics are shown in dynamic cards. Environmental data is visualized with live-updating line charts (Chart.js) to show real-time monitoring. The biosecurity and circular economy models are presented as clickable HTML/CSS diagrams for better comprehension than text. The implementation plan is a visual timeline. Financials are simplified into donut and bar charts (Chart.js). The risk matrix is an interactive table. This approach makes complex information accessible and engaging, confirming NO SVG/Mermaid usage. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background-color: #f8f9fa;
-        }
-        .tab-button.active {
-            border-color: #16a34a;
-            color: #16a34a;
-            font-weight: 600;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            height: 280px;
-            max-height: 300px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 320px;
-                max-height: 350px;
-            }
-        }
-        .status-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .status-ok { background-color: #22c55e; }
-        .status-warning { background-color: #f59e0b; }
-        .status-danger { background-color: #ef4444; }
-        .process-step {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .process-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .tech-layer:hover .layer-icon {
-            transform: scale(1.1);
-            color: #16a34a;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -29px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #fff;
-            border: 4px solid #16a34a;
-        }
-    </style>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/widgets.css">
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Dashboard dự án trang trại chăn nuôi thông minh 4.0 tại Hưng Yên - Ứng dụng AI & IoT trong nông nghiệp">
+    <meta name="keywords" content="trang trại thông minh, chăn nuôi lợn, AI, IoT, Hưng Yên, nông nghiệp 4.0">
+    <meta name="author" content="Tún Anh">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Dashboard Dự Án Trang Trại Thông Minh 4.0">
+    <meta property="og:description" content="Dự án đầu tư trang trại chăn nuôi thông minh tại Hưng Yên">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
-<body class="bg-stone-50 text-slate-800">
-
-    <div class="container mx-auto p-4 md:p-8">
-        
-        <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-green-800 mb-2">Mô Hình Trang Trại Chăn Nuôi Thông Minh 4.0</h1>
-            <p class="text-lg text-slate-600">Dự án đầu tư tại Hưng Yên - Tối ưu hóa vận hành, Nâng cao hiệu quả bằng AI & IoT</p>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Mô Hình Trang Trại Chăn Nuôi Thông Minh 4.0</h1>
+            <p>Dự án đầu tư tại Hưng Yên - Tối ưu hóa vận hành, Nâng cao hiệu quả bằng AI & IoT</p>
         </header>
+
+        <!-- Navigation -->
+        <nav class="page-nav">
+            <a href="index.html" class="nav-link active">🏠 Trang Chủ</a>
+            <a href="pages/analytics.html" class="nav-link">📊 Phân Tích</a>
+            <a href="pages/reports.html" class="nav-link">📋 Báo Cáo</a>
+            <a href="pages/settings.html" class="nav-link">⚙️ Cài Đặt</a>
+            <a href="pages/help.html" class="nav-link">❓ Trợ Giúp</a>
+        </nav>
 
         <main>
             <!-- Dashboard Section -->
-            <section id="dashboard" class="bg-white p-6 rounded-2xl shadow-lg mb-10">
-                <div class="flex justify-between items-center mb-6 border-b pb-4">
-                     <h2 class="text-2xl font-bold text-slate-700">Bảng Điều Khiển Vận Hành Trung Tâm</h2>
-                     <div class="flex items-center space-x-2">
-                        <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                        <span id="real-time-clock" class="text-sm font-medium text-slate-500"></span>
-                     </div>
-                </div>
-
-                <p class="mb-6 text-slate-600 text-center max-w-3xl mx-auto">
-                    Đây là giao diện mô phỏng bảng điều khiển trung tâm của trang trại, nơi người quản lý có thể giám sát mọi thông số quan trọng theo thời gian thực. Từ các chỉ số tổng quan đến tình trạng chi tiết của từng khu chuồng, tất cả đều được cập nhật liên tục để đưa ra quyết định nhanh chóng và chính xác.
-                </p>
-
-                <!-- Key Metrics -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8 text-center">
-                    <div class="bg-stone-100 p-4 rounded-lg">
-                        <p class="text-sm text-slate-500">Tổng Đàn</p>
-                        <p id="total-pigs" class="text-2xl font-bold text-green-700">4,985</p>
-                    </div>
-                    <div class="bg-stone-100 p-4 rounded-lg">
-                        <p class="text-sm text-slate-500">TL Trung Bình (kg)</p>
-                        <p id="avg-weight" class="text-2xl font-bold text-green-700">85.6</p>
-                    </div>
-                    <div class="bg-stone-100 p-4 rounded-lg">
-                        <p class="text-sm text-slate-500">FCR Toàn Trại</p>
-                        <p id="fcr-total" class="text-2xl font-bold text-green-700">2.41</p>
-                    </div>
-                    <div class="bg-stone-100 p-4 rounded-lg">
-                        <p class="text-sm text-slate-500">Thức Ăn Hôm Nay (Tấn)</p>
-                        <p id="daily-feed" class="text-2xl font-bold text-green-700">11.2</p>
-                    </div>
-                    <div class="bg-stone-100 p-4 rounded-lg col-span-2 md:col-span-1">
-                        <p class="text-sm text-slate-500">Cảnh Báo</p>
-                        <p id="active-alerts" class="text-2xl font-bold text-amber-500">3</p>
-                    </div>
-                </div>
-
-                <!-- Barn Selection & Charts -->
-                <div class="bg-stone-50 p-6 rounded-xl">
-                    <div class="md:flex justify-between items-center mb-6">
-                        <h3 class="text-xl font-semibold text-slate-700 mb-4 md:mb-0">Giám Sát Vi Khí Hậu Chuồng Nuôi</h3>
-                        <div id="barn-selector" class="flex flex-wrap gap-2">
-                            <button data-barn="all" class="barn-btn bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium">Toàn Trại</button>
-                            <button data-barn="barn_a" class="barn-btn bg-white text-slate-700 px-4 py-2 rounded-md text-sm font-medium border">Chuồng A (Thịt)</button>
-                            <button data-barn="barn_b" class="barn-btn bg-white text-slate-700 px-4 py-2 rounded-md text-sm font-medium border">Chuồng B (Thịt)</button>
-                            <button data-barn="nursery" class="barn-btn bg-white text-slate-700 px-4 py-2 rounded-md text-sm font-medium border">Chuồng Cai Sữa</button>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <div class="bg-white p-4 rounded-lg shadow-sm">
-                            <h4 class="font-semibold mb-2 text-center">Nhiệt độ (°C)</h4>
-                            <div class="chart-container"><canvas id="tempChart"></canvas></div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm">
-                            <h4 class="font-semibold mb-2 text-center">Độ ẩm (%)</h4>
-                            <div class="chart-container"><canvas id="humidityChart"></canvas></div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm">
-                            <h4 class="font-semibold mb-2 text-center">Nồng độ NH3 (ppm)</h4>
-                            <div class="chart-container"><canvas id="gasChart"></canvas></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div id="dashboard-container"></div>
 
             <!-- Detailed Info Section -->
             <section id="details">
-                <div class="mb-8 border-b-2">
-                    <nav class="flex flex-wrap -mb-px" id="tab-buttons">
-                        <button class="tab-button active text-base font-medium text-center text-slate-500 border-b-2 border-transparent px-4 py-3" data-tab="opportunity">1. Tổng Quan & Cơ Hội</button>
-                        <button class="tab-button text-base font-medium text-center text-slate-500 border-b-2 border-transparent px-4 py-3" data-tab="process">2. Quy Trình Vận Hành</button>
-                        <button class="tab-button text-base font-medium text-center text-slate-500 border-b-2 border-transparent px-4 py-3" data-tab="technology">3. Nền Tảng Công Nghệ</button>
-                        <button class="tab-button text-base font-medium text-center text-slate-500 border-b-2 border-transparent px-4 py-3" data-tab="roadmap">4. Lộ Trình & Đầu Tư</button>
-                        <button class="tab-button text-base font-medium text-center text-slate-500 border-b-2 border-transparent px-4 py-3" data-tab="risk">5. Rủi Ro & Bền Vững</button>
-                    </nav>
-                </div>
-
-                <div id="tab-contents" class="bg-white p-6 rounded-2xl shadow-lg">
-                    <!-- Tab 1: Opportunity -->
-                    <div id="opportunity" class="tab-content active">
-                        <h3 class="text-2xl font-bold mb-4 text-green-800">Tại Sao Đầu Tư vào Hưng Yên?</h3>
-                        <p class="mb-6 text-slate-600">
-                            Phần này phân tích các yếu tố nền tảng, chứng minh Hưng Yên là địa điểm chiến lược và mô hình chăn nuôi lợn ứng dụng AI là một quyết định đầu tư đúng đắn, đón đầu xu hướng thị trường. Sự kết hợp giữa lợi thế địa lý, hạ tầng, chính sách và nhu cầu thị trường tạo ra một cơ hội đầu tư độc đáo và đầy tiềm năng.
-                        </p>
-                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <div class="bg-stone-50 p-5 rounded-lg">
-                                <h4 class="font-bold text-lg mb-2">Vị Trí Vàng</h4>
-                                <p class="text-sm text-slate-600">Cửa ngõ Hà Nội, kết nối cao tốc 5A, 5B giúp tối ưu logistics, giảm chi phí vận chuyển và tiếp cận thị trường tiêu thụ lớn nhất miền Bắc.</p>
-                            </div>
-                            <div class="bg-stone-50 p-5 rounded-lg">
-                                <h4 class="font-bold text-lg mb-2">Hạ Tầng Sẵn Sàng</h4>
-                                <p class="text-sm text-slate-600">Lưới điện quốc gia ổn định, hạ tầng viễn thông 4G/5G và cáp quang phủ rộng, đảm bảo kết nối liên tục cho hệ thống IoT.</p>
-                            </div>
-                            <div class="bg-stone-50 p-5 rounded-lg">
-                                <h4 class="font-bold text-lg mb-2">Chính Sách Hấp Dẫn</h4>
-                                <p class="text-sm text-slate-600">Ưu đãi về thuế, miễn giảm tiền thuê đất, hỗ trợ vay vốn và cải cách hành chính tạo môi trường đầu tư thông thoáng.</p>
-                            </div>
-                             <div class="bg-stone-50 p-5 rounded-lg">
-                                <h4 class="font-bold text-lg mb-2">Thị Trường Rộng Mở</h4>
-                                <p class="text-sm text-slate-600">Sau khủng hoảng Dịch tả lợn châu Phi, nhu cầu về thịt lợn SẠCH, an toàn, có truy xuất nguồn gốc tăng vọt, tạo ra phân khúc thị trường giá trị cao.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab 2: Process -->
-                    <div id="process" class="tab-content">
-                        <h3 class="text-2xl font-bold mb-4 text-green-800">Quy Trình Vận Hành An Toàn Sinh Học & Tuần Hoàn</h3>
-                        <p class="mb-8 text-slate-600">
-                            Nền tảng của trang trại là một mô hình vận hành được thiết kế khoa học, tuân thủ các tiêu chuẩn an toàn sinh học nghiêm ngặt nhất và hướng tới kinh tế tuần hoàn. Các quy trình được số hóa và tự động hóa để đảm bảo tính nhất quán, chính xác và giảm thiểu sự can thiệp của con người.
-                        </p>
-                        <div class="grid lg:grid-cols-2 gap-12">
-                            <div>
-                                <h4 class="text-xl font-semibold mb-4 text-center">Mô Hình An Toàn Sinh Học 3 Vùng</h4>
-                                <div class="relative p-8 bg-stone-50 rounded-lg">
-                                    <div class="flex flex-col items-center space-y-4">
-                                        <div class="process-step w-full bg-red-100 p-4 rounded-lg text-center border-l-4 border-red-500">
-                                            <h5 class="font-bold">Vùng Bẩn (Ngoài Cùng)</h5>
-                                            <p class="text-sm">Cổng chính, nhà xe, khu tiếp nhận nguyên liệu thô. Mọi phương tiện, con người phải qua trạm sát khuẩn.</p>
-                                        </div>
-                                        <div class="text-2xl">⬇️</div>
-                                        <div class="process-step w-full bg-amber-100 p-4 rounded-lg text-center border-l-4 border-amber-500">
-                                            <h5 class="font-bold">Vùng Đệm (Chuyển Tiếp)</h5>
-                                            <p class="text-sm">Văn phòng, nhà tắm khử khuẩn, phòng thay đồ bảo hộ. Nhân viên phải tắm, thay đồ chuyên dụng.</p>
-                                        </div>
-                                        <div class="text-2xl">⬇️</div>
-                                        <div class="process-step w-full bg-green-100 p-4 rounded-lg text-center border-l-4 border-green-500">
-                                            <h5 class="font-bold">Vùng Sạch (An Toàn Cao Nhất)</h5>
-                                            <p class="text-sm">Toàn bộ khu chuồng nuôi, kho thức ăn tinh. Chỉ nhân sự phận sự đã khử khuẩn được vào.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold mb-4 text-center">Mô Hình Kinh Tế Tuần Hoàn</h4>
-                                <div class="relative p-8 bg-stone-50 rounded-lg h-full flex items-center">
-                                    <div class="w-full text-center">
-                                        <div class="process-step bg-white p-4 rounded-lg shadow mb-4">
-                                            <p>Chất thải chăn nuôi</p>
-                                        </div>
-                                        <div class="text-2xl">🔄</div>
-                                        <div class="grid grid-cols-2 gap-4 my-4">
-                                            <div class="process-step bg-blue-100 p-4 rounded-lg">
-                                                <h5 class="font-bold">Hầm Biogas</h5>
-                                                <p class="text-sm">Phân hủy yếm khí</p>
-                                            </div>
-                                            <div class="process-step bg-yellow-100 p-4 rounded-lg">
-                                                <h5 class="font-bold">Máy Phát Điện</h5>
-                                                <p class="text-sm">Tái tạo năng lượng</p>
-                                            </div>
-                                        </div>
-                                        <div class="text-2xl">⬇️</div>
-                                        <div class="grid grid-cols-2 gap-4 mt-4">
-                                             <div class="process-step bg-green-100 p-4 rounded-lg">
-                                                <h5 class="font-bold">Phân Bón Hữu Cơ</h5>
-                                                <p class="text-sm">Tạo thêm doanh thu</p>
-                                            </div>
-                                            <div class="process-step bg-cyan-100 p-4 rounded-lg">
-                                                <h5 class="font-bold">Nước Tưới</h5>
-                                                <p class="text-sm">Tái sử dụng cho cây trồng</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab 3: Technology -->
-                    <div id="technology" class="tab-content">
-                        <h3 class="text-2xl font-bold mb-4 text-green-800">Kiến Trúc Công Nghệ 4 Lớp</h3>
-                         <p class="mb-8 text-slate-600">
-                            Đây là "trái tim công nghệ" của dự án, tạo ra sự khác biệt vượt trội so với mô hình truyền thống. Hệ thống được thiết kế theo kiến trúc 4 lớp, mỗi lớp có một chức năng riêng biệt và tương tác chặt chẽ với nhau, từ việc thu thập dữ liệu đến thực thi tự động và phân tích dự báo bằng AI.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                            <div class="tech-layer bg-stone-50 p-6 rounded-lg transition-all duration-300">
-                                <div class="layer-icon text-4xl mb-4 transition-all duration-300">📡</div>
-                                <h4 class="text-lg font-bold mb-2">Lớp 1: Thu Thập Dữ Liệu</h4>
-                                <p class="text-sm text-slate-600">Mạng lưới cảm biến môi trường, camera 2D/3D, micro thu thập hàng triệu điểm dữ liệu mỗi giây.</p>
-                            </div>
-                            <div class="tech-layer bg-stone-50 p-6 rounded-lg transition-all duration-300">
-                                <div class="layer-icon text-4xl mb-4 transition-all duration-300">⚙️</div>
-                                <h4 class="text-lg font-bold mb-2">Lớp 2: Chấp Hành</h4>
-                                <p class="text-sm text-slate-600">Hệ thống quạt, máy bơm, van, robot tự động thực thi mệnh lệnh từ trung tâm điều khiển.</p>
-                            </div>
-                            <div class="tech-layer bg-stone-50 p-6 rounded-lg transition-all duration-300">
-                                <div class="layer-icon text-4xl mb-4 transition-all duration-300">🧠</div>
-                                <h4 class="text-lg font-bold mb-2">Lớp 3: Phân Tích & Điều Khiển</h4>
-                                <p class="text-sm text-slate-600">"Bộ não" AI phân tích dữ liệu, phát hiện bất thường, dự báo rủi ro và ra quyết định tự động.</p>
-                            </div>
-                            <div class="tech-layer bg-stone-50 p-6 rounded-lg transition-all duration-300">
-                                <div class="layer-icon text-4xl mb-4 transition-all duration-300">📊</div>
-                                <h4 class="text-lg font-bold mb-2">Lớp 4: Hiển Thị & Tương Tác</h4>
-                                <p class="text-sm text-slate-600">Dashboard trực quan giúp người quản lý giám sát và điều khiển toàn bộ trang trại từ xa.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab 4: Roadmap -->
-                    <div id="roadmap" class="tab-content">
-                        <h3 class="text-2xl font-bold mb-4 text-green-800">Lộ Trình Triển Khai & Phân Tích Đầu Tư</h3>
-                        <p class="mb-8 text-slate-600">
-                           Dự án được triển khai theo một lộ trình khoa học, có kiểm soát qua 4 giai đoạn chính. Phân tích tài chính chi tiết chứng minh tính khả thi về mặt kinh tế và khả năng sinh lời hấp dẫn của dự án.
-                        </p>
-                        <div class="grid lg:grid-cols-5 gap-8">
-                            <div class="lg:col-span-3">
-                                <h4 class="text-xl font-semibold mb-6">Lộ Trình Triển Khai Dự Án</h4>
-                                <div class="relative border-l-2 border-green-200 pl-8">
-                                    <div class="timeline-item mb-8">
-                                        <h5 class="font-bold text-lg">Giai đoạn 1: Chuẩn bị & Xây dựng</h5>
-                                        <p class="text-sm text-slate-500 mb-2">Tháng 1 - 9</p>
-                                        <p class="text-sm text-slate-600">Hoàn tất pháp lý, giải phóng mặt bằng, xây dựng hạ tầng cơ bản và phần thô công trình.</p>
-                                    </div>
-                                    <div class="timeline-item mb-8">
-                                        <h5 class="font-bold text-lg">Giai đoạn 2: Lắp đặt Công nghệ</h5>
-                                        <p class="text-sm text-slate-500 mb-2">Tháng 10 - 15</p>
-                                        <p class="text-sm text-slate-600">Triển khai lớp IoT & Automation, cài đặt phần mềm quản lý, tuyển dụng và đào tạo nhân sự chủ chốt.</p>
-                                    </div>
-                                    <div class="timeline-item mb-8">
-                                        <h5 class="font-bold text-lg">Giai đoạn 3: Vận hành Thử nghiệm</h5>
-                                        <p class="text-sm text-slate-500 mb-2">Tháng 16 - 18</p>
-                                        <p class="text-sm text-slate-600">Nhập lứa giống đầu tiên, hiệu chỉnh hệ thống, thu thập dữ liệu ban đầu và hoàn thiện SOPs.</p>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <h5 class="font-bold text-lg">Giai đoạn 4: Vận hành Chính thức</h5>
-                                        <p class="text-sm text-slate-500 mb-2">Tháng 19 trở đi</p>
-                                        <p class="text-sm text-slate-600">Hoạt động toàn công suất, tối ưu hóa liên tục dựa trên dữ liệu và lập kế hoạch mở rộng.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="lg:col-span-2">
-                                <h4 class="text-xl font-semibold mb-6">Phân Tích Chi Phí (Minh Họa)</h4>
-                                <div class="bg-stone-50 p-4 rounded-lg mb-6">
-                                    <h5 class="font-semibold text-center mb-2">Phân Bổ Vốn Đầu Tư (CAPEX)</h5>
-                                    <div class="chart-container h-64 max-h-64"><canvas id="capexChart"></canvas></div>
-                                </div>
-                                <div class="bg-stone-50 p-4 rounded-lg">
-                                    <h5 class="font-semibold text-center mb-2">Chi Phí Vận Hành Hàng Năm (OPEX)</h5>
-                                    <div class="chart-container h-64 max-h-64"><canvas id="opexChart"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab 5: Risk -->
-                    <div id="risk" class="tab-content">
-                        <h3 class="text-2xl font-bold mb-4 text-green-800">Quản Trị Rủi Ro & Thành Công Bền Vững</h3>
-                        <p class="mb-8 text-slate-600">
-                            Một kế hoạch đầu tư toàn diện phải lường trước và có phương án đối phó với những thách thức. Chúng tôi đã xác định các rủi ro chính và đề ra biện pháp giảm thiểu, đồng thời nhấn mạnh các yếu tố then chốt để đảm bảo thành công bền vững trong dài hạn.
-                        </p>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm text-left text-slate-500">
-                                <thead class="text-xs text-slate-700 uppercase bg-stone-100">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3">Loại Rủi Ro</th>
-                                        <th scope="col" class="px-6 py-3">Mô Tả</th>
-                                        <th scope="col" class="px-6 py-3">Biện Pháp Giảm Thiểu</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="bg-white border-b">
-                                        <th scope="row" class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap">Kỹ thuật</th>
-                                        <td class="px-6 py-4">Mất điện, lỗi kết nối, hỏng hóc thiết bị.</td>
-                                        <td class="px-6 py-4">Hệ thống máy phát điện dự phòng tự động, 2 đường truyền internet, hợp đồng bảo trì 24/7.</td>
-                                    </tr>
-                                    <tr class="bg-stone-50 border-b">
-                                        <th scope="row" class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap">Sinh học</th>
-                                        <td class="px-6 py-4">Dịch bệnh (ví dụ: ASF) xâm nhập.</td>
-                                        <td class="px-6 py-4">Tuân thủ tuyệt đối an toàn sinh học 3 vùng, AI cảnh báo sớm, kế hoạch ứng phó khẩn cấp.</td>
-                                    </tr>
-                                    <tr class="bg-white border-b">
-                                        <th scope="row" class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap">Thị trường</th>
-                                        <td class="px-6 py-4">Giá bán biến động, cạnh tranh gay gắt.</td>
-                                        <td class="px-6 py-4">Xây dựng thương hiệu cao cấp (sạch, an toàn, truy xuất được), ký hợp đồng dài hạn với đối tác chiến lược.</td>
-                                    </tr>
-                                    <tr class="bg-stone-50">
-                                        <th scope="row" class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap">Vận hành</th>
-                                        <td class="px-6 py-4">Sai sót của con người, không tuân thủ SOP.</td>
-                                        <td class="px-6 py-4">Đào tạo liên tục, SOPs trực quan, hệ thống hóa quy trình trên phần mềm để giảm phụ thuộc vào con người.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                <div id="tabs-container"></div>
             </section>
         </main>
 
-        <footer class="text-center mt-12 pt-8 border-t border-slate-200">
-            <p class="text-slate-500">&copy; 2025 - Dự án Trang Trại Thông Minh Hưng Yên. Phát triển bởi Tún Anh vip 's pro no1.</p>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 - Dự án Trang Trại Thông Minh Hưng Yên. Phát triển bởi Tún Anh vip 's pro no1.</p>
         </footer>
-
     </div>
 
+    <!-- Custom JavaScript -->
+    <script src="js/dashboard.js"></script>
+    <script src="js/features.js"></script>
+    
+    <!-- Component Loader -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // --- Clock ---
-            const clockElement = document.getElementById('real-time-clock');
-            function updateClock() {
-                const now = new Date();
-                const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-                clockElement.textContent = `LIVE: ${now.toLocaleDateString('vi-VN', options)}`;
+        // Load components
+        async function loadComponent(url, containerId) {
+            try {
+                const response = await fetch(url);
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+            } catch (error) {
+                console.error('Error loading component:', error);
             }
-            setInterval(updateClock, 1000);
-            updateClock();
+        }
 
-            // --- Tabs ---
-            const tabButtons = document.getElementById('tab-buttons');
-            const tabContents = document.getElementById('tab-contents');
-
-            tabButtons.addEventListener('click', (e) => {
-                if (e.target.classList.contains('tab-button')) {
-                    const tabId = e.target.dataset.tab;
-                    
-                    // Update buttons
-                    tabButtons.querySelectorAll('.tab-button').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    e.target.classList.add('active');
-
-                    // Update contents
-                    tabContents.querySelectorAll('.tab-content').forEach(content => {
-                        content.classList.remove('active');
-                    });
-                    document.getElementById(tabId).classList.add('active');
-                }
-            });
-
-            // --- Charts ---
-            const chartOptions = {
-                maintainAspectRatio: false,
-                responsive: true,
-                scales: {
-                    y: { 
-                        beginAtZero: false,
-                        grid: { color: '#e2e8f0' }
-                    },
-                    x: { 
-                        grid: { display: false }
-                    }
-                },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        enabled: true,
-                        mode: 'index',
-                        intersect: false,
-                    },
-                },
-                animation: {
-                    duration: 500,
-                },
-            };
-
-            const chartLabels = ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'];
-            
-            const chartData = {
-                all: {
-                    temp: [26, 26.5, 27, 28, 27.5, 27, 26],
-                    humidity: [75, 76, 74, 72, 73, 75, 76],
-                    gas: [12, 13, 15, 14, 16, 15, 14]
-                },
-                barn_a: {
-                    temp: [27, 27.2, 27.5, 28.5, 28, 27.5, 27],
-                    humidity: [72, 73, 71, 69, 70, 72, 73],
-                    gas: [15, 16, 17, 16, 18, 17, 16]
-                },
-                barn_b: {
-                    temp: [26.5, 26.8, 27.2, 28.1, 27.8, 27.2, 26.8],
-                    humidity: [78, 79, 77, 75, 76, 78, 79],
-                    gas: [10, 11, 12, 11, 13, 12, 11]
-                },
-                nursery: {
-                    temp: [29, 29.2, 29.5, 30, 29.8, 29.5, 29.2],
-                    humidity: [65, 66, 64, 62, 63, 65, 66],
-                    gas: [8, 9, 10, 9, 11, 10, 9]
-                }
-            };
-
-            const tempChartCtx = document.getElementById('tempChart').getContext('2d');
-            const tempChart = new Chart(tempChartCtx, {
-                type: 'line',
-                data: {
-                    labels: chartLabels,
-                    datasets: [{
-                        label: 'Nhiệt độ',
-                        data: chartData.all.temp,
-                        borderColor: '#ef4444',
-                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                        fill: true,
-                        tension: 0.4,
-                    }]
-                },
-                options: chartOptions
-            });
-
-            const humidityChartCtx = document.getElementById('humidityChart').getContext('2d');
-            const humidityChart = new Chart(humidityChartCtx, {
-                type: 'line',
-                data: {
-                    labels: chartLabels,
-                    datasets: [{
-                        label: 'Độ ẩm',
-                        data: chartData.all.humidity,
-                        borderColor: '#3b82f6',
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                        fill: true,
-                        tension: 0.4
-                    }]
-                },
-                options: chartOptions
-            });
-
-            const gasChartCtx = document.getElementById('gasChart').getContext('2d');
-            const gasChart = new Chart(gasChartCtx, {
-                type: 'line',
-                data: {
-                    labels: chartLabels,
-                    datasets: [{
-                        label: 'NH3',
-                        data: chartData.all.gas,
-                        borderColor: '#f97316',
-                        backgroundColor: 'rgba(249, 115, 22, 0.1)',
-                        fill: true,
-                        tension: 0.4
-                    }]
-                },
-                options: chartOptions
-            });
-
-            const capexChartCtx = document.getElementById('capexChart').getContext('2d');
-            const capexChart = new Chart(capexChartCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Xây dựng', 'Công nghệ', 'Con giống', 'Pháp lý & Khác'],
-                    datasets: [{
-                        data: [45, 35, 15, 5],
-                        backgroundColor: ['#1d4ed8', '#2563eb', '#60a5fa', '#93c5fd'],
-                        borderColor: '#f8f9fa',
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } }
-                }
-            });
-
-            const opexChartCtx = document.getElementById('opexChart').getContext('2d');
-            const opexChart = new Chart(opexChartCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Thức ăn', 'Năng lượng', 'Nhân sự', 'Thú y & Khác'],
-                    datasets: [{
-                        data: [65, 10, 15, 10],
-                        backgroundColor: ['#047857', '#059669', '#34d399', '#6ee7b7'],
-                        borderColor: '#f8f9fa',
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } }
-                }
-            });
-
-            // --- Barn Selector Logic ---
-            const barnSelector = document.getElementById('barn-selector');
-            barnSelector.addEventListener('click', (e) => {
-                if (e.target.classList.contains('barn-btn')) {
-                    const barnId = e.target.dataset.barn;
-
-                    barnSelector.querySelectorAll('.barn-btn').forEach(btn => {
-                        btn.classList.remove('bg-green-600', 'text-white');
-                        btn.classList.add('bg-white', 'text-slate-700');
-                    });
-                    e.target.classList.add('bg-green-600', 'text-white');
-                    e.target.classList.remove('bg-white', 'text-slate-700');
-
-                    updateCharts(barnId);
-                }
-            });
-
-            function updateCharts(barnId) {
-                const data = chartData[barnId];
-                tempChart.data.datasets[0].data = data.temp;
-                humidityChart.data.datasets[0].data = data.humidity;
-                gasChart.data.datasets[0].data = data.gas;
-
-                tempChart.update();
-                humidityChart.update();
-                gasChart.update();
-            }
-
-            // --- Simulate Real-time Dashboard Data ---
-            const totalPigsEl = document.getElementById('total-pigs');
-            const avgWeightEl = document.getElementById('avg-weight');
-            const fcrTotalEl = document.getElementById('fcr-total');
-            const dailyFeedEl = document.getElementById('daily-feed');
-
-            setInterval(() => {
-                let currentPigs = parseInt(totalPigsEl.textContent.replace(',', ''));
-                totalPigsEl.textContent = (currentPigs + (Math.random() > 0.8 ? (Math.random() > 0.5 ? 1 : -1) : 0)).toLocaleString('vi-VN');
-
-                let currentWeight = parseFloat(avgWeightEl.textContent);
-                avgWeightEl.textContent = (currentWeight + (Math.random() - 0.5) * 0.05).toFixed(1);
-
-                let currentFcr = parseFloat(fcrTotalEl.textContent);
-                fcrTotalEl.textContent = (currentFcr + (Math.random() - 0.5) * 0.005).toFixed(2);
-                
-                let currentFeed = parseFloat(dailyFeedEl.textContent);
-                dailyFeedEl.textContent = (currentFeed + (Math.random() - 0.5) * 0.1).toFixed(1);
-
-            }, 2500);
-
+        // Load all components when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            loadComponent('components/dashboard.html', 'dashboard-container');
+            loadComponent('components/tabs.html', 'tabs-container');
         });
     </script>
 </body>

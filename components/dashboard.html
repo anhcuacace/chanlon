@@ -1,0 +1,71 @@
+<!-- Dashboard Section -->
+<section id="dashboard" class="dashboard">
+    <div class="dashboard-header">
+        <h2 class="dashboard-title">Bảng Điều Khiển Vận Hành Trung Tâm</h2>
+        <div class="live-indicator">
+            <div class="live-dot"></div>
+            <span id="real-time-clock" class="clock"></span>
+        </div>
+    </div>
+
+    <p class="tab-description text-center">
+        Đây là giao diện mô phỏng bảng điều khiển trung tâm của trang trại, nơi người quản lý có thể giám sát mọi thông số quan trọng theo thời gian thực. Từ các chỉ số tổng quan đến tình trạng chi tiết của từng khu chuồng, tất cả đều được cập nhật liên tục để đưa ra quyết định nhanh chóng và chính xác.
+    </p>
+
+    <!-- Key Metrics -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <p class="metric-label">Tổng Đàn</p>
+            <p id="total-pigs" class="metric-value">4,985</p>
+        </div>
+        <div class="metric-card">
+            <p class="metric-label">TL Trung Bình (kg)</p>
+            <p id="avg-weight" class="metric-value">85.6</p>
+        </div>
+        <div class="metric-card">
+            <p class="metric-label">FCR Toàn Trại</p>
+            <p id="fcr-total" class="metric-value">2.41</p>
+        </div>
+        <div class="metric-card">
+            <p class="metric-label">Thức Ăn Hôm Nay (Tấn)</p>
+            <p id="daily-feed" class="metric-value">11.2</p>
+        </div>
+        <div class="metric-card">
+            <p class="metric-label">Cảnh Báo</p>
+            <p id="active-alerts" class="metric-value warning">3</p>
+        </div>
+    </div>
+
+    <!-- Barn Selection & Charts -->
+    <div class="charts-section">
+        <div class="charts-header">
+            <h3 class="charts-title">Giám Sát Vi Khí Hậu Chuồng Nuôi</h3>
+            <div class="barn-selector">
+                <button data-barn="all" class="barn-btn active">Toàn Trại</button>
+                <button data-barn="barn_a" class="barn-btn">Chuồng A (Thịt)</button>
+                <button data-barn="barn_b" class="barn-btn">Chuồng B (Thịt)</button>
+                <button data-barn="nursery" class="barn-btn">Chuồng Cai Sữa</button>
+            </div>
+        </div>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h4 class="chart-title">Nhiệt độ (°C)</h4>
+                <div class="chart-container">
+                    <canvas id="tempChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h4 class="chart-title">Độ ẩm (%)</h4>
+                <div class="chart-container">
+                    <canvas id="humidityChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h4 class="chart-title">Nồng độ NH3 (ppm)</h4>
+                <div class="chart-container">
+                    <canvas id="gasChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

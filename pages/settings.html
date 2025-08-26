@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài Đặt - Trang Trại Thông Minh</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/widgets.css">
+    <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>⚙️ Cài Đặt Hệ Thống</h1>
+            <p>Tùy chỉnh và cấu hình hệ thống trang trại thông minh</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="page-nav">
+            <a href="../index.html" class="nav-link">🏠 Trang Chủ</a>
+            <a href="analytics.html" class="nav-link">📊 Phân Tích</a>
+            <a href="reports.html" class="nav-link">📋 Báo Cáo</a>
+            <a href="settings.html" class="nav-link active">⚙️ Cài Đặt</a>
+            <a href="help.html" class="nav-link">❓ Trợ Giúp</a>
+        </nav>
+
+        <main>
+            <div class="settings-container">
+                <!-- Settings Navigation -->
+                <nav class="settings-nav">
+                    <button class="settings-tab active" data-tab="general">
+                        <span class="tab-icon">🔧</span>
+                        <span class="tab-label">Tổng Quan</span>
+                    </button>
+                    <button class="settings-tab" data-tab="notifications">
+                        <span class="tab-icon">🔔</span>
+                        <span class="tab-label">Thông Báo</span>
+                    </button>
+                    <button class="settings-tab" data-tab="alerts">
+                        <span class="tab-icon">🚨</span>
+                        <span class="tab-label">Cảnh Báo</span>
+                    </button>
+                    <button class="settings-tab" data-tab="appearance">
+                        <span class="tab-icon">🎨</span>
+                        <span class="tab-label">Giao Diện</span>
+                    </button>
+                    <button class="settings-tab" data-tab="security">
+                        <span class="tab-icon">🔒</span>
+                        <span class="tab-label">Bảo Mật</span>
+                    </button>
+                    <button class="settings-tab" data-tab="users">
+                        <span class="tab-icon">👥</span>
+                        <span class="tab-label">Người Dùng</span>
+                    </button>
+                    <button class="settings-tab" data-tab="system">
+                        <span class="tab-icon">💻</span>
+                        <span class="tab-label">Hệ Thống</span>
+                    </button>
+                </nav>
+
+                <!-- Settings Content -->
+                <div class="settings-content">
+                    <!-- General Settings -->
+                    <div class="settings-panel active" id="general">
+                        <h2>Cài Đặt Tổng Quan</h2>
+                        
+                        <div class="setting-group">
+                            <h3>Thông Tin Trang Trại</h3>
+                            <div class="setting-item">
+                                <label>Tên trang trại:</label>
+                                <input type="text" value="Trang Trại Thông Minh Hưng Yên" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label>Địa chỉ:</label>
+                                <input type="text" value="Hưng Yên, Việt Nam" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label>Số điện thoại:</label>
+                                <input type="tel" value="+84 123 456 789" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label>Email:</label>
+                                <input type="email" value="info@trangtrai.com" class="setting-input">
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Cấu Hình Mặc Định</h3>
+                            <div class="setting-item">
+                                <label>Múi giờ:</label>
+                                <select class="setting-select">
+                                    <option value="Asia/Ho_Chi_Minh" selected>Asia/Ho_Chi_Minh (GMT+7)</option>
+                                    <option value="UTC">UTC (GMT+0)</option>
+                                    <option value="America/New_York">America/New_York (GMT-5)</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label>Ngôn ngữ:</label>
+                                <select class="setting-select">
+                                    <option value="vi" selected>Tiếng Việt</option>
+                                    <option value="en">English</option>
+                                    <option value="zh">中文</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label>Đơn vị đo:</label>
+                                <select class="setting-select">
+                                    <option value="metric" selected>Hệ mét (kg, °C)</option>
+                                    <option value="imperial">Hệ Anh (lb, °F)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications Settings -->
+                    <div class="settings-panel" id="notifications">
+                        <h2>Cài Đặt Thông Báo</h2>
+                        
+                        <div class="setting-group">
+                            <h3>Thông Báo Email</h3>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" checked class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Báo cáo hàng ngày</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" checked class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Cảnh báo khẩn cấp</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Báo cáo tuần</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Cập nhật hệ thống</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Thông Báo Trình Duyệt</h3>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" checked class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Cho phép thông báo trình duyệt</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" checked class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Âm thanh thông báo</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alerts Settings -->
+                    <div class="settings-panel" id="alerts">
+                        <h2>Cài Đặt Cảnh Báo</h2>
+                        
+                        <div class="setting-group">
+                            <h3>Ngưỡng Cảnh Báo Nhiệt Độ</h3>
+                            <div class="setting-item">
+                                <label>Nhiệt độ tối thiểu (°C):</label>
+                                <input type="number" value="20" min="15" max="30" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label>Nhiệt độ tối đa (°C):</label>
+                                <input type="number" value="30" min="25" max="35" class="setting-input">
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Ngưỡng Cảnh Báo Độ Ẩm</h3>
+                            <div class="setting-item">
+                                <label>Độ ẩm tối thiểu (%):</label>
+                                <input type="number" value="60" min="50" max="80" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label>Độ ẩm tối đa (%):</label>
+                                <input type="number" value="85" min="75" max="95" class="setting-input">
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Ngưỡng Cảnh Báo Khí NH3</h3>
+                            <div class="setting-item">
+                                <label>Nồng độ NH3 tối đa (ppm):</label>
+                                <input type="number" value="20" min="10" max="30" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appearance Settings -->
+                    <div class="settings-panel" id="appearance">
+                        <h2>Cài Đặt Giao Diện</h2>
+                        
+                        <div class="setting-group">
+                            <h3>Chế Độ Hiển Thị</h3>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" class="toggle-input" id="darkMode">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Chế độ tối</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" checked class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Hiệu ứng chuyển động</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Màu Sắc Chủ Đạo</h3>
+                            <div class="setting-item">
+                                <label>Màu chính:</label>
+                                <div class="color-picker">
+                                    <input type="color" value="#16a34a" class="color-input">
+                                    <span class="color-name">Xanh lá</span>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label>Màu phụ:</label>
+                                <div class="color-picker">
+                                    <input type="color" value="#3b82f6" class="color-input">
+                                    <span class="color-name">Xanh dương</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Bố Cục Dashboard</h3>
+                            <div class="setting-item">
+                                <label>Số cột hiển thị:</label>
+                                <select class="setting-select">
+                                    <option value="2">2 cột</option>
+                                    <option value="3" selected>3 cột</option>
+                                    <option value="4">4 cột</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="settings-panel" id="security">
+                        <h2>Cài Đặt Bảo Mật</h2>
+                        
+                        <div class="setting-group">
+                            <h3>Đổi Mật Khẩu</h3>
+                            <div class="setting-item">
+                                <label>Mật khẩu hiện tại:</label>
+                                <input type="password" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label>Mật khẩu mới:</label>
+                                <input type="password" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label>Xác nhận mật khẩu mới:</label>
+                                <input type="password" class="setting-input">
+                            </div>
+                            <button class="btn btn-primary">Cập nhật mật khẩu</button>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Xác Thực Hai Yếu Tố</h3>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Bật xác thực hai yếu tố</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Phiên Đăng Nhập</h3>
+                            <div class="setting-item">
+                                <label>Thời gian timeout (phút):</label>
+                                <input type="number" value="30" min="5" max="120" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Users Settings -->
+                    <div class="settings-panel" id="users">
+                        <h2>Quản Lý Người Dùng</h2>
+                        
+                        <div class="users-list">
+                            <div class="user-item">
+                                <div class="user-info">
+                                    <div class="user-avatar">👨‍💼</div>
+                                    <div class="user-details">
+                                        <h4>Admin</h4>
+                                        <p>admin@trangtrai.com</p>
+                                        <span class="user-role admin">Quản trị viên</span>
+                                    </div>
+                                </div>
+                                <div class="user-actions">
+                                    <button class="btn btn-small">Chỉnh sửa</button>
+                                    <button class="btn btn-small btn-danger">Xóa</button>
+                                </div>
+                            </div>
+                            
+                            <div class="user-item">
+                                <div class="user-info">
+                                    <div class="user-avatar">👨‍🌾</div>
+                                    <div class="user-details">
+                                        <h4>Nguyễn Văn A</h4>
+                                        <p>worker1@trangtrai.com</p>
+                                        <span class="user-role worker">Nhân viên</span>
+                                    </div>
+                                </div>
+                                <div class="user-actions">
+                                    <button class="btn btn-small">Chỉnh sửa</button>
+                                    <button class="btn btn-small btn-danger">Xóa</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary">+ Thêm người dùng mới</button>
+                    </div>
+
+                    <!-- System Settings -->
+                    <div class="settings-panel" id="system">
+                        <h2>Cài Đặt Hệ Thống</h2>
+                        
+                        <div class="setting-group">
+                            <h3>Backup & Khôi Phục</h3>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" checked class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Tự động backup hàng ngày</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>Thời gian backup:</label>
+                                <input type="time" value="02:00" class="setting-input">
+                            </div>
+                            <button class="btn btn-secondary">Tạo backup ngay</button>
+                            <button class="btn btn-secondary">Khôi phục từ backup</button>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Bảo Trì Hệ Thống</h3>
+                            <div class="setting-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" class="toggle-input">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Chế độ bảo trì</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>Thời gian bảo trì:</label>
+                                <input type="time" value="03:00" class="setting-input">
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <h3>Thông Tin Hệ Thống</h3>
+                            <div class="system-info">
+                                <div class="info-item">
+                                    <span class="info-label">Phiên bản:</span>
+                                    <span class="info-value">2.0.1</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Cập nhật cuối:</span>
+                                    <span class="info-value">31/01/2025</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Trạng thái:</span>
+                                    <span class="info-value status-ok">Hoạt động bình thường</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary">Kiểm tra cập nhật</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 - Trang Trại Thông Minh Hưng Yên. Phát triển bởi Tún Anh.</p>
+        </footer>
+    </div>
+
+    <script src="../js/settings.js"></script>
+</body>
+</html>

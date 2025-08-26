@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân Tích Dữ Liệu - Trang Trại Thông Minh</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/widgets.css">
+    <link rel="stylesheet" href="../css/analytics.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📊 Phân Tích Dữ Liệu Chi Tiết</h1>
+            <p>Dashboard phân tích sâu về hiệu suất và xu hướng trang trại</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="page-nav">
+            <a href="../index.html" class="nav-link">🏠 Trang Chủ</a>
+            <a href="analytics.html" class="nav-link active">📊 Phân Tích</a>
+            <a href="reports.html" class="nav-link">📋 Báo Cáo</a>
+            <a href="settings.html" class="nav-link">⚙️ Cài Đặt</a>
+            <a href="help.html" class="nav-link">❓ Trợ Giúp</a>
+        </nav>
+
+        <main>
+            <!-- Analytics Dashboard -->
+            <section class="analytics-dashboard">
+                <div class="analytics-header">
+                    <h2>Dashboard Phân Tích</h2>
+                    <div class="date-range-picker">
+                        <label>Chọn khoảng thời gian:</label>
+                        <select id="timeRange">
+                            <option value="7">7 ngày qua</option>
+                            <option value="30" selected>30 ngày qua</option>
+                            <option value="90">3 tháng qua</option>
+                            <option value="365">1 năm qua</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">📈</div>
+                        <div class="kpi-content">
+                            <h3>Tăng Trưởng Đàn</h3>
+                            <div class="kpi-value">+15.2%</div>
+                            <div class="kpi-change positive">+2.1% so với tháng trước</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">💰</div>
+                        <div class="kpi-content">
+                            <h3>Lợi Nhuận</h3>
+                            <div class="kpi-value">2.8 Tỷ VNĐ</div>
+                            <div class="kpi-change positive">+18.5% so với tháng trước</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🌡️</div>
+                        <div class="kpi-content">
+                            <h3>Hiệu Suất Nhiệt</h3>
+                            <div class="kpi-value">94.7%</div>
+                            <div class="kpi-change positive">+1.3% so với tháng trước</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🍽️</div>
+                        <div class="kpi-content">
+                            <h3>Tiết Kiệm Thức Ăn</h3>
+                            <div class="kpi-value">12.3%</div>
+                            <div class="kpi-change positive">+3.2% so với tháng trước</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-row">
+                        <div class="chart-container-large">
+                            <h3>Xu Hướng Tăng Trưởng Theo Thời Gian</h3>
+                            <canvas id="growthChart"></canvas>
+                        </div>
+                        <div class="chart-container-large">
+                            <h3>Phân Tích Lợi Nhuận Chi Tiết</h3>
+                            <canvas id="profitChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-row">
+                        <div class="chart-container-medium">
+                            <h3>Phân Bổ Chi Phí</h3>
+                            <canvas id="costChart"></canvas>
+                        </div>
+                        <div class="chart-container-medium">
+                            <h3>Hiệu Suất Theo Chuồng</h3>
+                            <canvas id="barnPerformanceChart"></canvas>
+                        </div>
+                        <div class="chart-container-medium">
+                            <h3>Chỉ Số Sức Khỏe Đàn</h3>
+                            <canvas id="healthChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Analytics -->
+                <div class="advanced-analytics">
+                    <h2>Phân Tích Nâng Cao</h2>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3>Dự Báo Xu Hướng</h3>
+                            <div class="prediction-content">
+                                <div class="prediction-item">
+                                    <span class="prediction-label">Tăng trưởng 3 tháng tới:</span>
+                                    <span class="prediction-value positive">+22.5%</span>
+                                </div>
+                                <div class="prediction-item">
+                                    <span class="prediction-label">Lợi nhuận dự kiến:</span>
+                                    <span class="prediction-value positive">3.2 Tỷ VNĐ</span>
+                                </div>
+                                <div class="prediction-item">
+                                    <span class="prediction-label">Rủi ro thị trường:</span>
+                                    <span class="prediction-value neutral">Thấp</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <h3>So Sánh Đối Thủ</h3>
+                            <div class="comparison-content">
+                                <div class="comparison-item">
+                                    <span class="comparison-label">Hiệu suất trung bình ngành:</span>
+                                    <span class="comparison-value">78.5%</span>
+                                </div>
+                                <div class="comparison-item">
+                                    <span class="comparison-label">Hiệu suất của chúng ta:</span>
+                                    <span class="comparison-value positive">94.7%</span>
+                                </div>
+                                <div class="comparison-item">
+                                    <span class="comparison-label">Vị thế cạnh tranh:</span>
+                                    <span class="comparison-value positive">Top 10%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 - Trang Trại Thông Minh Hưng Yên. Phát triển bởi Tún Anh.</p>
+        </footer>
+    </div>
+
+    <script src="../js/analytics.js"></script>
+</body>
+</html>

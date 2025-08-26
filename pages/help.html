@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trợ Giúp - Trang Trại Thông Minh</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/widgets.css">
+    <link rel="stylesheet" href="../css/help.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>❓ Trung Tâm Trợ Giúp</h1>
+            <p>Hướng dẫn sử dụng và giải đáp thắc mắc về hệ thống</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="page-nav">
+            <a href="../index.html" class="nav-link">🏠 Trang Chủ</a>
+            <a href="analytics.html" class="nav-link">📊 Phân Tích</a>
+            <a href="reports.html" class="nav-link">📋 Báo Cáo</a>
+            <a href="settings.html" class="nav-link">⚙️ Cài Đặt</a>
+            <a href="help.html" class="nav-link active">❓ Trợ Giúp</a>
+        </nav>
+
+        <main>
+            <div class="help-container">
+                <!-- Search Section -->
+                <section class="search-section">
+                    <div class="search-box">
+                        <input type="text" placeholder="Tìm kiếm câu hỏi hoặc chủ đề..." id="helpSearch">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                    <div class="quick-links">
+                        <a href="#getting-started" class="quick-link">🚀 Bắt đầu</a>
+                        <a href="#dashboard" class="quick-link">📊 Dashboard</a>
+                        <a href="#reports" class="quick-link">📋 Báo cáo</a>
+                        <a href="#troubleshooting" class="quick-link">🔧 Sửa lỗi</a>
+                    </div>
+                </section>
+
+                <!-- Help Content -->
+                <div class="help-content">
+                    <!-- Getting Started -->
+                    <section id="getting-started" class="help-section">
+                        <h2>🚀 Bắt Đầu Sử Dụng</h2>
+                        
+                        <div class="help-card">
+                            <h3>Làm quen với Dashboard</h3>
+                            <div class="help-content-text">
+                                <p>Dashboard chính là nơi bạn có thể theo dõi toàn bộ hoạt động của trang trại theo thời gian thực. Các thông tin quan trọng bao gồm:</p>
+                                <ul>
+                                    <li><strong>Tổng đàn:</strong> Số lượng lợn hiện tại trong trang trại</li>
+                                    <li><strong>Trọng lượng trung bình:</strong> Cân nặng trung bình của đàn</li>
+                                    <li><strong>FCR (Feed Conversion Ratio):</strong> Tỷ lệ chuyển đổi thức ăn</li>
+                                    <li><strong>Thức ăn hàng ngày:</strong> Lượng thức ăn tiêu thụ</li>
+                                    <li><strong>Cảnh báo:</strong> Số lượng cảnh báo cần xử lý</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="help-card">
+                            <h3>Giám sát môi trường</h3>
+                            <div class="help-content-text">
+                                <p>Hệ thống giám sát môi trường giúp bạn theo dõi các thông số quan trọng:</p>
+                                <ul>
+                                    <li><strong>Nhiệt độ:</strong> Duy trì trong khoảng 26-28°C</li>
+                                    <li><strong>Độ ẩm:</strong> Duy trì trong khoảng 65-75%</li>
+                                    <li><strong>Nồng độ NH3:</strong> Dưới 20ppm</li>
+                                </ul>
+                                <p>Bạn có thể chọn từng chuồng để xem chi tiết hoặc xem tổng quan toàn trại.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Dashboard Guide -->
+                    <section id="dashboard" class="help-section">
+                        <h2>📊 Hướng Dẫn Sử Dụng Dashboard</h2>
+                        
+                        <div class="help-card">
+                            <h3>Chọn chuồng nuôi</h3>
+                            <div class="help-content-text">
+                                <p>Để xem chi tiết từng chuồng:</p>
+                                <ol>
+                                    <li>Nhấp vào nút chuồng tương ứng (Chuồng A, Chuồng B, Chuồng Cai Sữa)</li>
+                                    <li>Biểu đồ sẽ tự động cập nhật với dữ liệu của chuồng được chọn</li>
+                                    <li>Nút "Toàn Trại" sẽ hiển thị dữ liệu tổng hợp</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="help-card">
+                            <h3>Đọc biểu đồ</h3>
+                            <div class="help-content-text">
+                                <p>Các biểu đồ hiển thị dữ liệu theo thời gian:</p>
+                                <ul>
+                                    <li><strong>Trục X:</strong> Thời gian trong ngày (00:00 - 24:00)</li>
+                                    <li><strong>Trục Y:</strong> Giá trị đo được</li>
+                                    <li><strong>Đường màu đỏ:</strong> Nhiệt độ</li>
+                                    <li><strong>Đường màu xanh:</strong> Độ ẩm</li>
+                                    <li><strong>Đường màu cam:</strong> Nồng độ NH3</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="help-card">
+                            <h3>Widget thông minh</h3>
+                            <div class="help-content-text">
+                                <p>Hệ thống có các widget tự động xuất hiện:</p>
+                                <ul>
+                                    <li><strong>Thông báo hệ thống:</strong> Góc phải trên - thông tin quan trọng</li>
+                                    <li><strong>Cảnh báo khẩn cấp:</strong> Góc trái trên - cần xử lý ngay</li>
+                                    <li><strong>Thời tiết:</strong> Góc phải dưới - thông tin địa phương</li>
+                                    <li><strong>Thị trường:</strong> Góc trái dưới - giá cả và xu hướng</li>
+                                    <li><strong>Dự báo AI:</strong> Trung tâm - phân tích tương lai</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Reports Guide -->
+                    <section id="reports" class="help-section">
+                        <h2>📋 Hướng Dẫn Tạo Báo Cáo</h2>
+                        
+                        <div class="help-card">
+                            <h3>Tạo báo cáo mới</h3>
+                            <div class="help-content-text">
+                                <ol>
+                                    <li>Chọn loại báo cáo (Hàng ngày, Tuần, Tháng, Tùy chỉnh)</li>
+                                    <li>Chọn nội dung cần báo cáo</li>
+                                    <li>Chọn khoảng thời gian</li>
+                                    <li>Xem trước báo cáo</li>
+                                    <li>Xuất PDF, Excel hoặc gửi email</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="help-card">
+                            <h3>Định dạng báo cáo</h3>
+                            <div class="help-content-text">
+                                <p><strong>PDF:</strong> Phù hợp để in ấn và chia sẻ</p>
+                                <p><strong>Excel:</strong> Phù hợp để phân tích dữ liệu chi tiết</p>
+                                <p><strong>Email:</strong> Tự động gửi đến địa chỉ đã cấu hình</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- FAQ Section -->
+                    <section id="faq" class="help-section">
+                        <h2>❓ Câu Hỏi Thường Gặp</h2>
+                        
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Làm thế nào để thay đổi ngưỡng cảnh báo?</h3>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Vào trang Cài đặt → Cảnh báo → Điều chỉnh các ngưỡng nhiệt độ, độ ẩm và NH3 theo nhu cầu của bạn.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Tại sao biểu đồ không cập nhật?</h3>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Kiểm tra kết nối internet và đảm bảo hệ thống IoT đang hoạt động bình thường. Nếu vẫn không được, hãy liên hệ hỗ trợ kỹ thuật.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Làm thế nào để thêm người dùng mới?</h3>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Vào trang Cài đặt → Người dùng → Nhấp "Thêm người dùng mới" và điền thông tin cần thiết.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Có thể xuất dữ liệu ra định dạng nào?</h3>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Hệ thống hỗ trợ xuất PDF, Excel (.xlsx), CSV và có thể gửi qua email. Bạn có thể chọn trong trang Báo cáo.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Làm thế nào để bật chế độ tối?</h3>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Vào trang Cài đặt → Giao diện → Bật "Chế độ tối" để thay đổi giao diện.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Troubleshooting -->
+                    <section id="troubleshooting" class="help-section">
+                        <h2>🔧 Khắc Phục Sự Cố</h2>
+                        
+                        <div class="help-card">
+                            <h3>Không thể đăng nhập</h3>
+                            <div class="help-content-text">
+                                <ul>
+                                    <li>Kiểm tra lại tên đăng nhập và mật khẩu</li>
+                                    <li>Đảm bảo Caps Lock không bật</li>
+                                    <li>Xóa cache trình duyệt và thử lại</li>
+                                    <li>Liên hệ quản trị viên nếu quên mật khẩu</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="help-card">
+                            <h3>Dữ liệu không cập nhật</h3>
+                            <div class="help-content-text">
+                                <ul>
+                                    <li>Kiểm tra kết nối internet</li>
+                                    <li>Làm mới trang (F5)</li>
+                                    <li>Kiểm tra trạng thái hệ thống IoT</li>
+                                    <li>Liên hệ hỗ trợ kỹ thuật nếu vấn đề kéo dài</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="help-card">
+                            <h3>Biểu đồ hiển thị sai</h3>
+                            <div class="help-content-text">
+                                <ul>
+                                    <li>Kiểm tra cài đặt múi giờ</li>
+                                    <li>Xóa cache trình duyệt</li>
+                                    <li>Thử trình duyệt khác</li>
+                                    <li>Cập nhật trình duyệt lên phiên bản mới nhất</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Contact Support -->
+                    <section id="contact" class="help-section">
+                        <h2>📞 Liên Hệ Hỗ Trợ</h2>
+                        
+                        <div class="contact-grid">
+                            <div class="contact-card">
+                                <div class="contact-icon">📧</div>
+                                <h3>Email Hỗ Trợ</h3>
+                                <p>support@trangtrai.com</p>
+                                <p>Phản hồi trong 24 giờ</p>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-icon">📱</div>
+                                <h3>Hotline</h3>
+                                <p>+84 123 456 789</p>
+                                <p>8:00 - 18:00 (Thứ 2 - Thứ 6)</p>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-icon">💬</div>
+                                <h3>Chat Trực Tuyến</h3>
+                                <p>Hỗ trợ 24/7</p>
+                                <button class="btn btn-primary">Bắt đầu chat</button>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-icon">📚</div>
+                                <h3>Tài Liệu</h3>
+                                <p>Hướng dẫn chi tiết</p>
+                                <a href="#" class="btn btn-secondary">Xem tài liệu</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 - Trang Trại Thông Minh Hưng Yên. Phát triển bởi Tún Anh.</p>
+        </footer>
+    </div>
+
+    <script src="../js/help.js"></script>
+</body>
+</html>
